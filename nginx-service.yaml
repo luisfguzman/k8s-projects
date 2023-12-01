@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx  # This selector matches the labels on the NGINX pods
+  ports:
+    - protocol: TCP
+      port: 80  # Port on which the service will be exposed within the cluster
+      targetPort: 8080  # Port to forward traffic to on the NGINX pods
+  type: LoadBalancer  # This type creates a LoadBalancer service (for cloud providers that support it)
